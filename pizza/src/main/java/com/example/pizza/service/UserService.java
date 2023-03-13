@@ -27,7 +27,7 @@ public class UserService implements UserDetailsService {
     public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
-    //запросы к базе данных от контроллера
+
     public List<User> findAll() {
         return userRepository.findAll();
     }
@@ -39,9 +39,7 @@ public class UserService implements UserDetailsService {
 
     public User updateUser(User user) {return userRepository.save(user);}
 
-    /**
-     * Метод для поиска по имени пользователя для получения его ролей
-     */
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByUsername(username);
